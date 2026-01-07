@@ -1,8 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bls2nwi65cm7k"]
+[gd_scene load_steps=13 format=3 uid="uid://bls2nwi65cm7k"]
 
 [ext_resource type="Texture2D" uid="uid://c75jrp57x4wfs" path="res://icon.svg" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://seqd0cgc51r3" path="res://node_2d.gd" id="1_d21ai"]
+[ext_resource type="Texture2D" uid="uid://dp166ufn6pdgp" path="res://sand.svg" id="2_d21ai"]
 [ext_resource type="Script" uid="uid://bkyayx2pfoyq8" path="res://player.gd" id="2_epypp"]
 [ext_resource type="Script" uid="uid://bkkxpxvi7lo0k" path="res://sun.gd" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://dj7wlkh7sbvn0" path="res://Sprite-0002.svg" id="4_q6r6c"]
+[ext_resource type="Texture2D" uid="uid://cxa2rjcosssag" path="res://Sprite-0001.svg" id="5_kdubu"]
+[ext_resource type="Texture2D" uid="uid://batja6rkm4v7o" path="res://background.svg" id="8_rj586"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(1150, 128.5)
@@ -13,14 +18,19 @@ size = Vector2(121, 123)
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
 radius = 66.189125
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d21ai"]
+radius = 44.0
+height = 252.21667
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_d21ai")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(560, 594)
-scale = Vector2(9.046875, 1)
-texture = ExtResource("1_0e48y")
+position = Vector2(571.00006, 405)
+scale = Vector2(1.7640625, 1)
+texture = ExtResource("2_d21ai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(554, 599)
@@ -44,8 +54,50 @@ script = ExtResource("3_epypp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sun"]
 position = Vector2(69, 67)
-texture = ExtResource("1_0e48y")
+scale = Vector2(0.34, 0.34)
+texture = ExtResource("4_q6r6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sun"]
 position = Vector2(68, 68)
 shape = SubResource("CircleShape2D_0hol4")
+
+[node name="Guada-Sol" type="Node2D" parent="."]
+position = Vector2(567, 381)
+
+[node name="Sprite2D" type="Sprite2D" parent="Guada-Sol"]
+position = Vector2(1.5258789e-05, 72)
+scale = Vector2(0.418, 0.418)
+texture = ExtResource("5_kdubu")
+
+[node name="sombra" type="Area2D" parent="Guada-Sol"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guada-Sol/sombra"]
+position = Vector2(0, 184)
+scale = Vector2(1, 1.015)
+shape = SubResource("CapsuleShape2D_d21ai")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 0
+offset_left = 988.02
+offset_top = 2.0
+offset_right = 1056.0189
+offset_bottom = 135.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 81
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+z_index = -1
+position = Vector2(564, 324.75)
+scale = Vector2(1.1340001, 0.96500003)
+texture = ExtResource("8_rj586")
+
+[connection signal="body_entered" from="Guada-Sol/sombra" to="." method="_on_sombra_body_entered"]
+[connection signal="body_exited" from="Guada-Sol/sombra" to="." method="_on_sombra_body_exited"]
