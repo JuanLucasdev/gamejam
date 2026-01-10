@@ -1,19 +1,110 @@
-[gd_scene load_steps=13 format=3 uid="uid://bls2nwi65cm7k"]
+[gd_scene load_steps=36 format=3 uid="uid://bls2nwi65cm7k"]
 
-[ext_resource type="Texture2D" uid="uid://c75jrp57x4wfs" path="res://icon.svg" id="1_0e48y"]
 [ext_resource type="Script" uid="uid://seqd0cgc51r3" path="res://node_2d.gd" id="1_d21ai"]
-[ext_resource type="Texture2D" uid="uid://daou8xeoad1v6" path="res://sprites/sand.svg" id="2_d21ai"]
 [ext_resource type="Script" uid="uid://bkyayx2pfoyq8" path="res://player.gd" id="2_epypp"]
 [ext_resource type="Script" uid="uid://bkkxpxvi7lo0k" path="res://sun.gd" id="3_epypp"]
+[ext_resource type="Texture2D" uid="uid://co285vml4s751" path="res://sprites/jump.png" id="4_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://cecg0n42kxjt3" path="res://sprites/Sprite-0002.svg" id="4_q6r6c"]
-[ext_resource type="Texture2D" uid="uid://c86bwk33ludeb" path="res://sprites/Sprite-0001.svg" id="5_kdubu"]
-[ext_resource type="Texture2D" uid="uid://csr8e3s3d3k22" path="res://sprites/background.svg" id="8_rj586"]
+[ext_resource type="Texture2D" uid="uid://bxvx8ndons32l" path="res://sprites/player.png" id="4_rj586"]
+[ext_resource type="Texture2D" uid="uid://b2c6gdonwyjog" path="res://sprites/Sprite-0005.png" id="5_d2bti"]
+[ext_resource type="Texture2D" uid="uid://bs5ephyps8mcl" path="res://sprites/guardasol.png" id="7_nr8wp"]
+[ext_resource type="Texture2D" uid="uid://dw30yf87403qc" path="res://sprites/coqueiro.png" id="8_nr8wp"]
+[ext_resource type="Texture2D" uid="uid://dtsc5kut5oy5t" path="res://sprites/background/sky.png" id="9_hqns4"]
+[ext_resource type="Texture2D" uid="uid://c67jw71xxow5c" path="res://sprites/background/ground.png" id="10_0h7mo"]
+[ext_resource type="Texture2D" uid="uid://byqltwcihpbf7" path="res://sprites/background/clouds.png" id="10_x0ka3"]
+[ext_resource type="Texture2D" uid="uid://cw5jfm8yd11tx" path="res://sprites/background/ocean.png" id="11_0h7mo"]
+[ext_resource type="Script" uid="uid://byvx82ebla6ok" path="res://clouds.gd" id="11_nr8wp"]
+[ext_resource type="Texture2D" uid="uid://b8mt0smxuve37" path="res://sprites/carangueijo.png" id="15_d2bti"]
+[ext_resource type="Script" uid="uid://bx3u1rf1ygqa6" path="res://carangueijo.gd" id="15_ta5nu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
-size = Vector2(1544, 128.5)
+size = Vector2(5756, 50.25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0h7mo"]
+atlas = ExtResource("4_rj586")
+region = Rect2(0, 0, 21, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nr8wp"]
+atlas = ExtResource("4_rj586")
+region = Rect2(21, 0, 21, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d2bti"]
+atlas = ExtResource("4_rj586")
+region = Rect2(42, 0, 21, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flf07"]
+atlas = ExtResource("4_nr8wp")
+region = Rect2(0, 0, 21, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ta5nu"]
+atlas = ExtResource("5_d2bti")
+region = Rect2(0, 0, 26, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k73cj"]
+atlas = ExtResource("5_d2bti")
+region = Rect2(52, 0, 26, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei405"]
+atlas = ExtResource("5_d2bti")
+region = Rect2(156, 0, 26, 38)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vxoj"]
+atlas = ExtResource("5_d2bti")
+region = Rect2(130, 0, 26, 38)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ta5nu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0h7mo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr8wp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d2bti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nr8wp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flf07")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta5nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k73cj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ta5nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei405")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7vxoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei405")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
-size = Vector2(121, 123)
+size = Vector2(44, 74)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
 radius = 66.189125
@@ -22,68 +113,118 @@ radius = 66.189125
 radius = 44.0
 height = 252.21667
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ta5nu"]
+radius = 29.666687
+height = 80.66669
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rjqkl"]
+atlas = ExtResource("15_d2bti")
+region = Rect2(0, 0, 33, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs4d3"]
+atlas = ExtResource("15_d2bti")
+region = Rect2(33, 0, 33, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e8dv2"]
+atlas = ExtResource("15_d2bti")
+region = Rect2(66, 0, 33, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2nhjh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rjqkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fs4d3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e8dv2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2bti"]
+size = Vector2(78, 34.5)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_d21ai")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(-1659, 741)
-scale = Vector2(2.4179685, 0.9953125)
-texture = ExtResource("2_d21ai")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(777, 642)
+position = Vector2(2881, 437.125)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="Player" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(77, 314)
+position = Vector2(257, 163)
 script = ExtResource("2_epypp")
 
-[node name="Sprite2D" type="Sprite2D" parent="Player"]
-position = Vector2(8, 109)
-texture = ExtResource("1_0e48y")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(4, 122)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_ta5nu")
+animation = &"jump"
+autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(10, 107)
+position = Vector2(3, 121)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(1.15, 1.15)
+position = Vector2(8.000015, 36.999992)
+scale = Vector2(0.9336705, 0.869461)
+zoom = Vector2(1.91, 1.91)
 
 [node name="Sun" type="CharacterBody2D" parent="."]
 script = ExtResource("3_epypp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sun"]
-position = Vector2(69, 67)
-scale = Vector2(0.34, 0.34)
+position = Vector2(70.625, 156.70001)
+scale = Vector2(0.215, 0.215)
 texture = ExtResource("4_q6r6c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sun"]
-position = Vector2(68, 68)
+position = Vector2(69.625, 157.70001)
+scale = Vector2(0.43, 0.43)
 shape = SubResource("CircleShape2D_0hol4")
 
 [node name="Guada-Sol" type="Node2D" parent="."]
-position = Vector2(578, 381)
+position = Vector2(1004, 186)
 
 [node name="Sprite2D" type="Sprite2D" parent="Guada-Sol"]
-position = Vector2(-180.99998, 116)
-scale = Vector2(0.418, 0.418)
-texture = ExtResource("5_kdubu")
+position = Vector2(-185.99998, 149)
+scale = Vector2(3, 3)
+texture = ExtResource("7_nr8wp")
 
 [node name="sombra" type="Area2D" parent="Guada-Sol"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guada-Sol/sombra"]
-position = Vector2(-183, 121)
+position = Vector2(-182, 143)
 scale = Vector2(1, 1.015)
 shape = SubResource("CapsuleShape2D_d21ai")
+
+[node name="Coqueiro" type="Sprite2D" parent="Guada-Sol"]
+position = Vector2(457, 111)
+scale = Vector2(3, 3)
+texture = ExtResource("8_nr8wp")
+
+[node name="sombra" type="Area2D" parent="Guada-Sol/Coqueiro"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guada-Sol/Coqueiro/sombra"]
+position = Vector2(2.6666665, 9.000001)
+shape = SubResource("CapsuleShape2D_ta5nu")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 7.0
+offset_top = 52.0
+offset_right = 47.0
+offset_bottom = 92.0
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="UI"]
@@ -101,39 +242,60 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 81
 metadata/_edit_use_anchors_ = true
 
-[node name="Node2D" type="Node2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
-z_index = -1
-position = Vector2(-1545, 614)
-scale = Vector2(1.148, 0.95839286)
-texture = ExtResource("8_rj586")
-
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.3, 0.3)
-motion_mirroring = Vector2(1000, 0)
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-238, -6)
+motion_mirroring = Vector2(3000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(5, -31)
-scale = Vector2(1, 0.9039301)
-texture = ExtResource("8_rj586")
-centered = false
-region_enabled = true
-region_rect = Rect2(-3.4100952, 4.1030197, 1003.58954, 687.8973)
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(1504, 252)
+scale = Vector2(3, 3)
+texture = ExtResource("9_hqns4")
 
-[node name="chão" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(6, 1)
-motion_mirroring = Vector2(600, 0)
+[node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-238, -6)
+motion_mirroring = Vector2(3000, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/chão"]
-position = Vector2(2, 577)
-scale = Vector2(2.403125, 0.6825435)
-texture = ExtResource("2_d21ai")
-centered = false
-region_enabled = true
-region_rect = Rect2(0, 453.48758, 640, 186.51242)
+[node name="Ground" type="Sprite2D" parent="ParallaxBackground/Ground"]
+position = Vector2(1504, 254.00002)
+scale = Vector2(3, 3)
+texture = ExtResource("10_0h7mo")
+
+[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-238, -6)
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(3000, 0)
+script = ExtResource("11_nr8wp")
+
+[node name="Clouds" type="Sprite2D" parent="ParallaxBackground/Clouds"]
+position = Vector2(1504, 251)
+scale = Vector2(3, 3)
+texture = ExtResource("10_x0ka3")
+
+[node name="Ocean" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(-237, -6)
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(3000, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ocean"]
+position = Vector2(1504, 251)
+scale = Vector2(3, 3)
+texture = ExtResource("11_0h7mo")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(647, 386)
+script = ExtResource("15_ta5nu")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+scale = Vector2(2.5, 2.5)
+sprite_frames = SubResource("SpriteFrames_2nhjh")
+autoplay = "default"
+frame_progress = 0.8171763
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-1, 1.75)
+shape = SubResource("RectangleShape2D_d2bti")
 
 [connection signal="body_entered" from="Guada-Sol/sombra" to="." method="_on_sombra_body_entered"]
 [connection signal="body_exited" from="Guada-Sol/sombra" to="." method="_on_sombra_body_exited"]

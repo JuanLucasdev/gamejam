@@ -10,10 +10,12 @@ const TAXA_SOMBRA := 10.0
 func _on_sombra_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		esta_na_sombra = true
+		print("Entrou na sombra")
 
 func _on_sombra_body_exited(body: Node2D) -> void:
 	if body.name == "Player":
 		esta_na_sombra = false
+		print("Saiu da sombra")
 		
 func _process(delta: float) -> void:
 	if esta_na_sombra:
