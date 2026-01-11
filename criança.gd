@@ -4,25 +4,34 @@ extends Node2D
 @onready var label: RichTextLabel = $DialogueBalloon/DialogueLabel
 @onready var collision: CollisionShape2D = $CollisionShape2D
 
-var current_dialogue_index: int = 0
+var current_dialogue_index := 0
+var trade_done := false
 
-var dialogues: Array[String] = [
-	"Olá, Bem vindo ao tutorial do jogo!",
-	#"Aqui, nada se resolve na força, só com atenção e espertice",
-	#"Fale com as pessoas. Observe o cenário.",
-	#"Algumas coisas só funcionam depois que você entende o lugar.",
-	#"Atravessar a praia é seu objetivo."
+var dialogues_before_trade := [
+	"Nossa… eu queria uma água de coco.",
+	"Moço, o senhor pode me ajudar?",
+	"Se você tiver um coco, eu posso trocar com você."
 ]
 
-@export var dialogue_speed: float = 0.1
+var dialogues_after_trade := [
+	"Obrigado!",
+	"Toma, esse apito era do meu pai.",
+	"Talvez ele te ajude por aí."
+]
+
+@export var dialogue_speed := 0.1
 
 var timer: Timer
 var is_typing := false
 var waiting_input := false
 var dialogue_active := false
+var player_ref: Node = null
 
 func _ready():
 	add_to_group("npcs")
+	
+	if collision:
+		collision.disabled = true
 	
 	label.bbcode_enabled = true
 	label.visible_characters = 0
@@ -34,10 +43,12 @@ func _ready():
 	
 	balloon.visible = false
 
+# 🔥 Só a criança tem isso
+func start_dialogue_with_player(player: Node):
+	player_ref = player
+	start_dialogue()
+
 func start_dialogue():
-	if collision and collision.disabled:
-		return
-	
 	if is_typing:
 		return
 	
@@ -48,14 +59,16 @@ func start_dialogue():
 	_show_current_dialogue()
 
 func _show_current_dialogue():
-	if current_dialogue_index >= dialogues.size():
-		_end_all_dialogues()
-		return
-	
 	dialogue_active = true
 	balloon.visible = true
 	
-	label.bbcode_text = dialogues[current_dialogue_index]
+	var active_dialogues = dialogues_after_trade if trade_done else dialogues_before_trade
+	
+	if current_dialogue_index >= active_dialogues.size():
+		_end_dialogue()
+		return
+	
+	label.bbcode_text = active_dialogues[current_dialogue_index]
 	label.visible_characters = 0
 	
 	is_typing = true
@@ -68,19 +81,29 @@ func _type_next_char():
 	if label.visible_characters >= label.get_total_character_count():
 		timer.stop()
 		is_typing = false
-		waiting_input = true   
+		waiting_input = true
 
 func _next_dialogue():
 	waiting_input = false
+	
+	if not trade_done \
+	and current_dialogue_index == dialogues_before_trade.size() - 1 \
+	and player_ref \
+	and player_ref.cocos_count > 0:
+		
+		player_ref.remove_coco()
+		player_ref.receive_whistle()
+		trade_done = true
+		current_dialogue_index = 0
+		return
+	
 	current_dialogue_index += 1
 	_show_current_dialogue()
 
-func _end_all_dialogues():
+func _end_dialogue():
 	dialogue_active = false
 	balloon.visible = false
-	
-	if collision:
-		collision.disabled = true
+	current_dialogue_index = 0
 
 func force_close_dialogue():
 	if dialogue_active:

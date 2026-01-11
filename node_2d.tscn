@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bls2nwi65cm7k"]
+[gd_scene load_steps=42 format=3 uid="uid://bls2nwi65cm7k"]
 
 [ext_resource type="Script" uid="uid://seqd0cgc51r3" path="res://node_2d.gd" id="1_d21ai"]
 [ext_resource type="Script" uid="uid://bkyayx2pfoyq8" path="res://player.gd" id="2_epypp"]
@@ -21,7 +21,7 @@
 [ext_resource type="Script" uid="uid://bx3u1rf1ygqa6" path="res://carangueijo.gd" id="15_ta5nu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
-size = Vector2(5756, 50.25)
+size = Vector2(5994, 50.25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0h7mo"]
 atlas = ExtResource("4_rj586")
@@ -157,13 +157,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d2bti"]
 size = Vector2(78, 34.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjqkl"]
+size = Vector2(90, 378.5)
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_d21ai")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2881, 437.125)
+position = Vector2(2762, 437.125)
 shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
@@ -280,6 +283,7 @@ motion_mirroring = Vector2(3000, 0)
 position = Vector2(1504, 254.00002)
 scale = Vector2(3, 3)
 texture = ExtResource("10_0h7mo")
+metadata/_edit_lock_ = true
 
 [node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-238, -6)
@@ -301,7 +305,6 @@ motion_mirroring = Vector2(3000, 0)
 position = Vector2(1504, 251)
 scale = Vector2(3, 3)
 texture = ExtResource("11_0h7mo")
-metadata/_edit_lock_ = true
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 position = Vector2(647, 386)
@@ -320,6 +323,12 @@ shape = SubResource("RectangleShape2D_d2bti")
 [node name="Flag" parent="." instance=ExtResource("14_rjqkl")]
 position = Vector2(1862, 336)
 scale = Vector2(3, 3)
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-87, 222.25)
+shape = SubResource("RectangleShape2D_rjqkl")
 
 [connection signal="body_entered" from="Guada-Sol/sombra" to="." method="_on_sombra_body_entered"]
 [connection signal="body_exited" from="Guada-Sol/sombra" to="." method="_on_sombra_body_exited"]

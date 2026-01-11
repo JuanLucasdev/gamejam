@@ -5,6 +5,7 @@ var movimento : float = 150.0
 var gravidade : float = 850.0
 var pulo : float = 380.0
 var cocos_count: int = 0 
+var has_whistle := false
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -61,11 +62,24 @@ func try_talk_to_npc():
 	
 	for npc in npcs:
 		if global_position.distance_to(npc.global_position) < 200:
-			npc.start_dialogue()
+			
+			if npc.has_method("start_dialogue_with_player"):
+				npc.start_dialogue_with_player(self)
+			else:
+				npc.start_dialogue()
+			
 			talked = true
 			break
 	
-	# Se apertou E mas não tem NPC perto → fecha diálogos
 	if not talked:
 		for npc in npcs:
 			npc.force_close_dialogue()
+
+
+func remove_coco():
+	cocos_count -= 1
+	print("Coco entregue. Restam: ", cocos_count)
+
+func receive_whistle():
+	has_whistle = true
+	print("Apito recebido!")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://p0b8000xr3qr"]
+[gd_scene load_steps=35 format=3 uid="uid://p0b8000xr3qr"]
 
 [ext_resource type="Script" uid="uid://seqd0cgc51r3" path="res://node_2d.gd" id="1_cs4p6"]
 [ext_resource type="Script" uid="uid://bkyayx2pfoyq8" path="res://player.gd" id="2_deyi8"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://b2c6gdonwyjog" path="res://sprites/Sprite-0005.png" id="5_vjafv"]
 [ext_resource type="Script" uid="uid://bkkxpxvi7lo0k" path="res://sun.gd" id="6_34icm"]
 [ext_resource type="Texture2D" uid="uid://cecg0n42kxjt3" path="res://sprites/Sprite-0002.svg" id="7_2u4g3"]
-[ext_resource type="Texture2D" uid="uid://bs5ephyps8mcl" path="res://sprites/guardasol.png" id="8_von6l"]
 [ext_resource type="Texture2D" uid="uid://dw30yf87403qc" path="res://sprites/coqueiro.png" id="9_xl81o"]
 [ext_resource type="Script" uid="uid://ckfvdgthk6jw1" path="res://coqueiro.gd" id="10_0vmlj"]
 [ext_resource type="PackedScene" uid="uid://3iurscmlogv2" path="res://coco.tscn" id="11_2by0r"]
@@ -17,9 +16,11 @@
 [ext_resource type="PackedScene" uid="uid://b3r5r0co4fumi" path="res://npc.tscn" id="14_dhd8o"]
 [ext_resource type="Texture2D" uid="uid://byqltwcihpbf7" path="res://sprites/background/clouds.png" id="15_etbao"]
 [ext_resource type="Texture2D" uid="uid://cw5jfm8yd11tx" path="res://sprites/background/ocean.png" id="16_425nr"]
+[ext_resource type="Script" uid="uid://dj87etqxf5n21" path="res://criança.gd" id="17_dhd8o"]
+[ext_resource type="Script" uid="uid://ckwjr1rvqayqk" path="res://guarda.gd" id="18_cs4p6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
-size = Vector2(5756, 50.25)
+size = Vector2(5993, 50.25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0h7mo"]
 atlas = ExtResource("3_stiwd")
@@ -110,18 +111,17 @@ size = Vector2(44, 74)
 [sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
 radius = 66.189125
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d21ai"]
-radius = 44.0
-height = 252.21667
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ta5nu"]
 radius = 29.666687
-height = 80.66669
+height = 75.125
 
 [sub_resource type="GDScript" id="GDScript_ta5nu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_k73cj"]
 radius = 7.3399687
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs4p6"]
+size = Vector2(90, 378.5)
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_cs4p6")
@@ -129,8 +129,9 @@ script = ExtResource("1_cs4p6")
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2881, 437.125)
+position = Vector2(2762.5, 437.125)
 shape = SubResource("RectangleShape2D_0hol4")
+metadata/_edit_lock_ = true
 
 [node name="Player" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
@@ -168,18 +169,6 @@ shape = SubResource("CircleShape2D_0hol4")
 
 [node name="Guada-Sol" type="Node2D" parent="."]
 position = Vector2(1004, 186)
-
-[node name="Sprite2D" type="Sprite2D" parent="Guada-Sol"]
-position = Vector2(-185.99998, 149)
-scale = Vector2(3, 3)
-texture = ExtResource("8_von6l")
-
-[node name="sombra" type="Area2D" parent="Guada-Sol"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Guada-Sol/sombra"]
-position = Vector2(-182, 143)
-scale = Vector2(1, 1.015)
-shape = SubResource("CapsuleShape2D_d21ai")
 
 [node name="Coqueiro" type="Sprite2D" parent="Guada-Sol"]
 position = Vector2(457, 103)
@@ -246,6 +235,7 @@ motion_mirroring = Vector2(3000, 0)
 position = Vector2(1504, 254.00002)
 scale = Vector2(3, 3)
 texture = ExtResource("13_afcs2")
+metadata/_edit_lock_ = true
 
 [node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-238, -6)
@@ -272,5 +262,16 @@ metadata/_edit_lock_ = true
 [node name="NPC" parent="." instance=ExtResource("14_dhd8o")]
 position = Vector2(409, 349)
 
-[connection signal="body_entered" from="Guada-Sol/sombra" to="." method="_on_sombra_body_entered"]
-[connection signal="body_exited" from="Guada-Sol/sombra" to="." method="_on_sombra_body_exited"]
+[node name="criança" parent="." instance=ExtResource("14_dhd8o")]
+position = Vector2(862, 347)
+script = ExtResource("17_dhd8o")
+
+[node name="guarda" parent="." instance=ExtResource("14_dhd8o")]
+position = Vector2(1959, 345)
+script = ExtResource("18_cs4p6")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-87, 222.25)
+shape = SubResource("RectangleShape2D_cs4p6")
