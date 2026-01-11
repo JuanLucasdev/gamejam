@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://3iurscmlogv2"]
+
+[ext_resource type="Script" uid="uid://cpkjw8nx68236" path="res://coco.gd" id="1_ox8pb"]
+[ext_resource type="Texture2D" uid="uid://hmqu805fjeql" path="res://sprites/coco-coqueiro.png" id="2_0f3hv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3a5v1"]
+radius = 13.341664
+
+[node name="Node2D" type="Node2D"]
+
+[node name="coco" type="RigidBody2D" parent="."]
+script = ExtResource("1_ox8pb")
+
+[node name="Sprite2D" type="Sprite2D" parent="coco"]
+z_index = 1
+position = Vector2(7, 9)
+scale = Vector2(3, 3)
+texture = ExtResource("2_0f3hv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="coco"]
+z_index = 2
+position = Vector2(0, -1)
+shape = SubResource("CircleShape2D_3a5v1")

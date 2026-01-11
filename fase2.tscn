@@ -1,58 +1,56 @@
-[gd_scene load_steps=41 format=3 uid="uid://bls2nwi65cm7k"]
+[gd_scene load_steps=34 format=3 uid="uid://p0b8000xr3qr"]
 
-[ext_resource type="Script" uid="uid://seqd0cgc51r3" path="res://node_2d.gd" id="1_d21ai"]
-[ext_resource type="Script" uid="uid://bkyayx2pfoyq8" path="res://player.gd" id="2_epypp"]
-[ext_resource type="Script" uid="uid://bkkxpxvi7lo0k" path="res://sun.gd" id="3_epypp"]
-[ext_resource type="Texture2D" uid="uid://co285vml4s751" path="res://sprites/jump.png" id="4_nr8wp"]
-[ext_resource type="Texture2D" uid="uid://cecg0n42kxjt3" path="res://sprites/Sprite-0002.svg" id="4_q6r6c"]
-[ext_resource type="Texture2D" uid="uid://bxvx8ndons32l" path="res://sprites/player.png" id="4_rj586"]
-[ext_resource type="Texture2D" uid="uid://b2c6gdonwyjog" path="res://sprites/Sprite-0005.png" id="5_d2bti"]
-[ext_resource type="Texture2D" uid="uid://bs5ephyps8mcl" path="res://sprites/guardasol.png" id="7_nr8wp"]
-[ext_resource type="Texture2D" uid="uid://dw30yf87403qc" path="res://sprites/coqueiro.png" id="8_nr8wp"]
-[ext_resource type="Texture2D" uid="uid://dtsc5kut5oy5t" path="res://sprites/background/sky.png" id="9_hqns4"]
-[ext_resource type="Texture2D" uid="uid://c67jw71xxow5c" path="res://sprites/background/ground.png" id="10_0h7mo"]
-[ext_resource type="Script" uid="uid://ckfvdgthk6jw1" path="res://coqueiro.gd" id="10_flf07"]
-[ext_resource type="Texture2D" uid="uid://byqltwcihpbf7" path="res://sprites/background/clouds.png" id="10_x0ka3"]
-[ext_resource type="Texture2D" uid="uid://cw5jfm8yd11tx" path="res://sprites/background/ocean.png" id="11_0h7mo"]
-[ext_resource type="PackedScene" uid="uid://3iurscmlogv2" path="res://coco.tscn" id="11_k73cj"]
-[ext_resource type="Script" uid="uid://byvx82ebla6ok" path="res://clouds.gd" id="11_nr8wp"]
-[ext_resource type="PackedScene" uid="uid://hbo621tcsrn2" path="res://flag.tscn" id="14_rjqkl"]
-[ext_resource type="Texture2D" uid="uid://b8mt0smxuve37" path="res://sprites/carangueijo.png" id="15_d2bti"]
-[ext_resource type="Script" uid="uid://bx3u1rf1ygqa6" path="res://carangueijo.gd" id="15_ta5nu"]
+[ext_resource type="Script" uid="uid://seqd0cgc51r3" path="res://node_2d.gd" id="1_cs4p6"]
+[ext_resource type="Script" uid="uid://bkyayx2pfoyq8" path="res://player.gd" id="2_deyi8"]
+[ext_resource type="Texture2D" uid="uid://bxvx8ndons32l" path="res://sprites/player.png" id="3_stiwd"]
+[ext_resource type="Texture2D" uid="uid://co285vml4s751" path="res://sprites/jump.png" id="4_7mgcf"]
+[ext_resource type="Texture2D" uid="uid://b2c6gdonwyjog" path="res://sprites/Sprite-0005.png" id="5_vjafv"]
+[ext_resource type="Script" uid="uid://bkkxpxvi7lo0k" path="res://sun.gd" id="6_34icm"]
+[ext_resource type="Texture2D" uid="uid://cecg0n42kxjt3" path="res://sprites/Sprite-0002.svg" id="7_2u4g3"]
+[ext_resource type="Texture2D" uid="uid://bs5ephyps8mcl" path="res://sprites/guardasol.png" id="8_von6l"]
+[ext_resource type="Texture2D" uid="uid://dw30yf87403qc" path="res://sprites/coqueiro.png" id="9_xl81o"]
+[ext_resource type="Script" uid="uid://ckfvdgthk6jw1" path="res://coqueiro.gd" id="10_0vmlj"]
+[ext_resource type="PackedScene" uid="uid://3iurscmlogv2" path="res://coco.tscn" id="11_2by0r"]
+[ext_resource type="Texture2D" uid="uid://dtsc5kut5oy5t" path="res://sprites/background/sky.png" id="12_3ytht"]
+[ext_resource type="Texture2D" uid="uid://c67jw71xxow5c" path="res://sprites/background/ground.png" id="13_afcs2"]
+[ext_resource type="Script" uid="uid://byvx82ebla6ok" path="res://clouds.gd" id="14_311ke"]
+[ext_resource type="PackedScene" uid="uid://b3r5r0co4fumi" path="res://npc.tscn" id="14_dhd8o"]
+[ext_resource type="Texture2D" uid="uid://byqltwcihpbf7" path="res://sprites/background/clouds.png" id="15_etbao"]
+[ext_resource type="Texture2D" uid="uid://cw5jfm8yd11tx" path="res://sprites/background/ocean.png" id="16_425nr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(5756, 50.25)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0h7mo"]
-atlas = ExtResource("4_rj586")
+atlas = ExtResource("3_stiwd")
 region = Rect2(0, 0, 21, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nr8wp"]
-atlas = ExtResource("4_rj586")
+atlas = ExtResource("3_stiwd")
 region = Rect2(21, 0, 21, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d2bti"]
-atlas = ExtResource("4_rj586")
+atlas = ExtResource("3_stiwd")
 region = Rect2(42, 0, 21, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_flf07"]
-atlas = ExtResource("4_nr8wp")
+atlas = ExtResource("4_7mgcf")
 region = Rect2(0, 0, 21, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ta5nu"]
-atlas = ExtResource("5_d2bti")
+atlas = ExtResource("5_vjafv")
 region = Rect2(0, 0, 26, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k73cj"]
-atlas = ExtResource("5_d2bti")
+atlas = ExtResource("5_vjafv")
 region = Rect2(52, 0, 26, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ei405"]
-atlas = ExtResource("5_d2bti")
+atlas = ExtResource("5_vjafv")
 region = Rect2(156, 0, 26, 38)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7vxoj"]
-atlas = ExtResource("5_d2bti")
+atlas = ExtResource("5_vjafv")
 region = Rect2(130, 0, 26, 38)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ta5nu"]
@@ -125,40 +123,8 @@ height = 80.66669
 [sub_resource type="CircleShape2D" id="CircleShape2D_k73cj"]
 radius = 7.3399687
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_rjqkl"]
-atlas = ExtResource("15_d2bti")
-region = Rect2(0, 0, 33, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fs4d3"]
-atlas = ExtResource("15_d2bti")
-region = Rect2(33, 0, 33, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_e8dv2"]
-atlas = ExtResource("15_d2bti")
-region = Rect2(66, 0, 33, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_2nhjh"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rjqkl")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fs4d3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_e8dv2")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d2bti"]
-size = Vector2(78, 34.5)
-
 [node name="Node2D" type="Node2D"]
-script = ExtResource("1_d21ai")
+script = ExtResource("1_cs4p6")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -166,10 +132,10 @@ script = ExtResource("1_d21ai")
 position = Vector2(2881, 437.125)
 shape = SubResource("RectangleShape2D_0hol4")
 
-[node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
+[node name="Player" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(257, 163)
-script = ExtResource("2_epypp")
+script = ExtResource("2_deyi8")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player"]
 position = Vector2(4, 122)
@@ -188,12 +154,12 @@ scale = Vector2(0.9336705, 0.869461)
 zoom = Vector2(1.91, 1.91)
 
 [node name="Sun" type="CharacterBody2D" parent="."]
-script = ExtResource("3_epypp")
+script = ExtResource("6_34icm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sun"]
 position = Vector2(70.625, 156.70001)
 scale = Vector2(0.215, 0.215)
-texture = ExtResource("4_q6r6c")
+texture = ExtResource("7_2u4g3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sun"]
 position = Vector2(69.625, 157.70001)
@@ -206,7 +172,7 @@ position = Vector2(1004, 186)
 [node name="Sprite2D" type="Sprite2D" parent="Guada-Sol"]
 position = Vector2(-185.99998, 149)
 scale = Vector2(3, 3)
-texture = ExtResource("7_nr8wp")
+texture = ExtResource("8_von6l")
 
 [node name="sombra" type="Area2D" parent="Guada-Sol"]
 
@@ -218,9 +184,9 @@ shape = SubResource("CapsuleShape2D_d21ai")
 [node name="Coqueiro" type="Sprite2D" parent="Guada-Sol"]
 position = Vector2(457, 103)
 scale = Vector2(3, 3.1999998)
-texture = ExtResource("8_nr8wp")
-script = ExtResource("10_flf07")
-cena_coco = ExtResource("11_k73cj")
+texture = ExtResource("9_xl81o")
+script = ExtResource("10_0vmlj")
+cena_coco = ExtResource("11_2by0r")
 
 [node name="sombra" type="Area2D" parent="Guada-Sol/Coqueiro"]
 
@@ -269,7 +235,7 @@ motion_mirroring = Vector2(3000, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
 position = Vector2(1504, 252)
 scale = Vector2(3, 3)
-texture = ExtResource("9_hqns4")
+texture = ExtResource("12_3ytht")
 metadata/_edit_lock_ = true
 
 [node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -279,18 +245,18 @@ motion_mirroring = Vector2(3000, 0)
 [node name="Ground" type="Sprite2D" parent="ParallaxBackground/Ground"]
 position = Vector2(1504, 254.00002)
 scale = Vector2(3, 3)
-texture = ExtResource("10_0h7mo")
+texture = ExtResource("13_afcs2")
 
 [node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-238, -6)
 motion_scale = Vector2(0.1, 1)
 motion_mirroring = Vector2(3000, 0)
-script = ExtResource("11_nr8wp")
+script = ExtResource("14_311ke")
 
 [node name="Clouds" type="Sprite2D" parent="ParallaxBackground/Clouds"]
 position = Vector2(1504, 251)
 scale = Vector2(3, 3)
-texture = ExtResource("10_x0ka3")
+texture = ExtResource("15_etbao")
 
 [node name="Ocean" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-237, -6)
@@ -300,26 +266,11 @@ motion_mirroring = Vector2(3000, 0)
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ocean"]
 position = Vector2(1504, 251)
 scale = Vector2(3, 3)
-texture = ExtResource("11_0h7mo")
+texture = ExtResource("16_425nr")
 metadata/_edit_lock_ = true
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(647, 386)
-script = ExtResource("15_ta5nu")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-scale = Vector2(2.5, 2.5)
-sprite_frames = SubResource("SpriteFrames_2nhjh")
-autoplay = "default"
-frame_progress = 0.8171763
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-1, 1.75)
-shape = SubResource("RectangleShape2D_d2bti")
-
-[node name="Flag" parent="." instance=ExtResource("14_rjqkl")]
-position = Vector2(1862, 336)
-scale = Vector2(3, 3)
+[node name="NPC" parent="." instance=ExtResource("14_dhd8o")]
+position = Vector2(409, 349)
 
 [connection signal="body_entered" from="Guada-Sol/sombra" to="." method="_on_sombra_body_entered"]
 [connection signal="body_exited" from="Guada-Sol/sombra" to="." method="_on_sombra_body_exited"]
