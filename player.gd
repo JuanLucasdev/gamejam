@@ -6,6 +6,9 @@ var gravidade : float = 850.0
 var pulo : float = 380.0
 var cocos_count: int = 0 
 var has_whistle := false
+var has_salt := true
+var talked_to_vendor := false
+
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
@@ -54,7 +57,6 @@ func try_collect_coco() -> void:
 
 func add_coco():
 	cocos_count += 1
-	print("Coco coletado! Total agora: ", cocos_count)
 
 func try_talk_to_npc():
 	var npcs = get_tree().get_nodes_in_group("npcs")
@@ -73,7 +75,8 @@ func try_talk_to_npc():
 	
 	if not talked:
 		for npc in npcs:
-			npc.force_close_dialogue()
+			if npc.has_method("force_close_dialogue"):
+				npc.force_close_dialogue()
 
 
 func remove_coco():

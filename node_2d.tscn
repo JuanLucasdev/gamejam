@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://bls2nwi65cm7k"]
+[gd_scene load_steps=46 format=3 uid="uid://bls2nwi65cm7k"]
 
 [ext_resource type="Script" uid="uid://seqd0cgc51r3" path="res://node_2d.gd" id="1_d21ai"]
 [ext_resource type="Script" uid="uid://bkyayx2pfoyq8" path="res://player.gd" id="2_epypp"]
@@ -19,6 +19,10 @@
 [ext_resource type="PackedScene" uid="uid://hbo621tcsrn2" path="res://flag.tscn" id="14_rjqkl"]
 [ext_resource type="Texture2D" uid="uid://b8mt0smxuve37" path="res://sprites/carangueijo.png" id="15_d2bti"]
 [ext_resource type="Script" uid="uid://bx3u1rf1ygqa6" path="res://carangueijo.gd" id="15_ta5nu"]
+[ext_resource type="PackedScene" uid="uid://b3r5r0co4fumi" path="res://npc.tscn" id="20_7vxoj"]
+[ext_resource type="Script" uid="uid://btkev5l2qv5jk" path="res://criança2.gd" id="21_ei405"]
+[ext_resource type="Script" uid="uid://u4d256mp1vlg" path="res://Vendedor.gd" id="22_ei405"]
+[ext_resource type="Script" uid="uid://bdhk1sx33qn0r" path="res://Praieiro.gd" id="23_e8dv2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(5994, 50.25)
@@ -175,14 +179,14 @@ position = Vector2(257, 163)
 script = ExtResource("2_epypp")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(4, 122)
+position = Vector2(-88, 169)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_ta5nu")
 animation = &"jump"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(3, 121)
+position = Vector2(-89, 168)
 shape = SubResource("RectangleShape2D_q6r6c")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -295,6 +299,7 @@ script = ExtResource("11_nr8wp")
 position = Vector2(1504, 251)
 scale = Vector2(3, 3)
 texture = ExtResource("10_x0ka3")
+metadata/_edit_lock_ = true
 
 [node name="Ocean" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-237, -6)
@@ -307,7 +312,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("11_0h7mo")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(647, 386)
+position = Vector2(415, 368)
 script = ExtResource("15_ta5nu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
@@ -317,11 +322,11 @@ autoplay = "default"
 frame_progress = 0.8171763
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-1, 1.75)
+position = Vector2(-1, 2)
 shape = SubResource("RectangleShape2D_d2bti")
 
 [node name="Flag" parent="." instance=ExtResource("14_rjqkl")]
-position = Vector2(1862, 336)
+position = Vector2(2095, 337)
 scale = Vector2(3, 3)
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
@@ -329,6 +334,24 @@ scale = Vector2(3, 3)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-87, 222.25)
 shape = SubResource("RectangleShape2D_rjqkl")
+
+[node name="Criança" parent="." instance=ExtResource("20_7vxoj")]
+position = Vector2(977, 347)
+script = ExtResource("21_ei405")
+
+[node name="Vendedor" parent="." instance=ExtResource("20_7vxoj")]
+position = Vector2(1810, 349)
+script = ExtResource("22_ei405")
+leave_distance = 64
+leave_speed = 80.0
+
+[node name="Praieiro" parent="." instance=ExtResource("20_7vxoj")]
+position = Vector2(1314, 347)
+script = ExtResource("23_e8dv2")
+vendedor_path = NodePath("../Vendedor")
+move_distance = 32
+move_speed = 80.0
+wait_time = 2.0
 
 [connection signal="body_entered" from="Guada-Sol/sombra" to="." method="_on_sombra_body_entered"]
 [connection signal="body_exited" from="Guada-Sol/sombra" to="." method="_on_sombra_body_exited"]
