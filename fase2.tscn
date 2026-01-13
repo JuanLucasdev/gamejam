@@ -1,280 +1,109 @@
-[gd_scene load_steps=36 format=3 uid="uid://p0b8000xr3qr"]
+[gd_scene load_steps=7 format=3 uid="uid://p0b8000xr3qr"]
 
-[ext_resource type="Script" uid="uid://seqd0cgc51r3" path="res://node_2d.gd" id="1_cs4p6"]
-[ext_resource type="Script" uid="uid://bkyayx2pfoyq8" path="res://player.gd" id="2_deyi8"]
-[ext_resource type="Texture2D" uid="uid://bxvx8ndons32l" path="res://sprites/player.png" id="3_stiwd"]
-[ext_resource type="Texture2D" uid="uid://co285vml4s751" path="res://sprites/jump.png" id="4_7mgcf"]
-[ext_resource type="Texture2D" uid="uid://b2c6gdonwyjog" path="res://sprites/Sprite-0005.png" id="5_vjafv"]
-[ext_resource type="Script" uid="uid://bkkxpxvi7lo0k" path="res://sun.gd" id="6_34icm"]
-[ext_resource type="Texture2D" uid="uid://cecg0n42kxjt3" path="res://sprites/Sprite-0002.svg" id="7_2u4g3"]
-[ext_resource type="Texture2D" uid="uid://dw30yf87403qc" path="res://sprites/coqueiro.png" id="9_xl81o"]
-[ext_resource type="Script" uid="uid://ckfvdgthk6jw1" path="res://coqueiro.gd" id="10_0vmlj"]
-[ext_resource type="PackedScene" uid="uid://3iurscmlogv2" path="res://coco.tscn" id="11_2by0r"]
-[ext_resource type="Texture2D" uid="uid://dtsc5kut5oy5t" path="res://sprites/background/sky.png" id="12_3ytht"]
-[ext_resource type="Texture2D" uid="uid://c67jw71xxow5c" path="res://sprites/background/ground.png" id="13_afcs2"]
-[ext_resource type="Script" uid="uid://byvx82ebla6ok" path="res://clouds.gd" id="14_311ke"]
-[ext_resource type="PackedScene" uid="uid://b3r5r0co4fumi" path="res://npc.tscn" id="14_dhd8o"]
-[ext_resource type="Texture2D" uid="uid://byqltwcihpbf7" path="res://sprites/background/clouds.png" id="15_etbao"]
-[ext_resource type="Texture2D" uid="uid://cw5jfm8yd11tx" path="res://sprites/background/ocean.png" id="16_425nr"]
-[ext_resource type="Script" uid="uid://dj87etqxf5n21" path="res://criança.gd" id="17_dhd8o"]
-[ext_resource type="Script" uid="uid://ckwjr1rvqayqk" path="res://guarda.gd" id="18_cs4p6"]
-[ext_resource type="PackedScene" uid="uid://ddgwhod2rm1oc" path="res://hud.tscn" id="19_deyi8"]
+[ext_resource type="Script" path="res://titlescreen.gd" id="1_or3mx"]
+[ext_resource type="Texture2D" uid="uid://c5b3bfbb3q34c" path="res://sprites/background/title-background.png" id="2_y5xxo"]
+[ext_resource type="Texture2D" uid="uid://bpsxoggcgh1rr" path="res://sprites/background/title-palyer.png" id="3_ojq0c"]
+[ext_resource type="Texture2D" uid="uid://ds6mi6gvbrh4y" path="res://sprites/background/title-krab.png" id="4_cohlw"]
+[ext_resource type="Texture2D" uid="uid://cs2fvvg3xkgpx" path="res://sprites/background/title-sun.png" id="5_ya2mj"]
+[ext_resource type="AudioStream" path="res://titlescreen_music.mp3" id="6_l0ehb"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
-size = Vector2(5993, 50.25)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_0h7mo"]
-atlas = ExtResource("3_stiwd")
-region = Rect2(0, 0, 21, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nr8wp"]
-atlas = ExtResource("3_stiwd")
-region = Rect2(21, 0, 21, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d2bti"]
-atlas = ExtResource("3_stiwd")
-region = Rect2(42, 0, 21, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_flf07"]
-atlas = ExtResource("4_7mgcf")
-region = Rect2(0, 0, 21, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ta5nu"]
-atlas = ExtResource("5_vjafv")
-region = Rect2(0, 0, 26, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k73cj"]
-atlas = ExtResource("5_vjafv")
-region = Rect2(52, 0, 26, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ei405"]
-atlas = ExtResource("5_vjafv")
-region = Rect2(156, 0, 26, 38)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7vxoj"]
-atlas = ExtResource("5_vjafv")
-region = Rect2(130, 0, 26, 38)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ta5nu"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0h7mo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nr8wp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_d2bti")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nr8wp")
-}],
-"loop": true,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_flf07")
-}],
-"loop": true,
-"name": &"jump",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ta5nu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k73cj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ta5nu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ei405")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_7vxoj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ei405")
-}],
-"loop": true,
-"name": &"walk",
-"speed": 6.0
-}]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q6r6c"]
-size = Vector2(44, 74)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0hol4"]
-radius = 66.189125
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ta5nu"]
-radius = 29.666687
-height = 75.125
-
-[sub_resource type="GDScript" id="GDScript_ta5nu"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_k73cj"]
-radius = 7.3399687
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cs4p6"]
-size = Vector2(90, 378.5)
-
-[node name="Node2D" type="Node2D"]
-script = ExtResource("1_cs4p6")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(2762.5, 437.125)
-shape = SubResource("RectangleShape2D_0hol4")
-metadata/_edit_lock_ = true
-
-[node name="Player" type="CharacterBody2D" parent="."]
-unique_name_in_owner = true
-position = Vector2(257, 163)
-script = ExtResource("2_deyi8")
-
-[node name="Sprite2D" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(4, 122)
-scale = Vector2(2, 2)
-sprite_frames = SubResource("SpriteFrames_ta5nu")
-animation = &"jump"
-autoplay = "idle"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
-position = Vector2(3, 121)
-shape = SubResource("RectangleShape2D_q6r6c")
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-position = Vector2(8.000015, 36.999992)
-scale = Vector2(0.9336705, 0.869461)
-zoom = Vector2(1.91, 1.91)
-
-[node name="Sun" type="CharacterBody2D" parent="."]
-script = ExtResource("6_34icm")
-
-[node name="Sprite2D" type="Sprite2D" parent="Sun"]
-position = Vector2(70.625, 156.70001)
-scale = Vector2(0.215, 0.215)
-texture = ExtResource("7_2u4g3")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sun"]
-position = Vector2(69.625, 157.70001)
-scale = Vector2(0.43, 0.43)
-shape = SubResource("CircleShape2D_0hol4")
-
-[node name="Guada-Sol" type="Node2D" parent="."]
-position = Vector2(1004, 186)
-
-[node name="Coqueiro" type="Sprite2D" parent="Guada-Sol"]
-position = Vector2(457, 103)
-scale = Vector2(3, 3.1999998)
-texture = ExtResource("9_xl81o")
-script = ExtResource("10_0vmlj")
-cena_coco = ExtResource("11_2by0r")
-
-[node name="sombra" type="Area2D" parent="Guada-Sol/Coqueiro"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Guada-Sol/Coqueiro/sombra"]
-position = Vector2(2.6666665, 9.000001)
-shape = SubResource("CapsuleShape2D_ta5nu")
-
-[node name="area do coco" type="Area2D" parent="Guada-Sol/Coqueiro"]
-position = Vector2(-2.3333335, -22.1875)
-script = SubResource("GDScript_ta5nu")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Guada-Sol/Coqueiro/area do coco"]
-shape = SubResource("CircleShape2D_k73cj")
-script = SubResource("GDScript_ta5nu")
-
-[node name="UI" type="Control" parent="."]
+[node name="titlescreen" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_left = 7.0
-offset_top = 52.0
-offset_right = 47.0
-offset_bottom = 92.0
-metadata/_edit_use_anchors_ = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_or3mx")
 
-[node name="Label" type="Label" parent="UI"]
+[node name="bg" type="TextureRect" parent="."]
 layout_mode = 1
-anchors_preset = -1
-anchor_left = 3.4994996
-anchor_top = -12.05
-anchor_right = 3.4994996
-anchor_bottom = -12.05
-offset_left = 988.02
-offset_top = 2.0
-offset_right = 1056.0189
-offset_bottom = 135.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 81
-metadata/_edit_use_anchors_ = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_y5xxo")
+expand_mode = 2
 
-[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ojq0c")
 
-[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-238, -6)
-motion_mirroring = Vector2(3000, 0)
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_cohlw")
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
-position = Vector2(1504, 252)
-scale = Vector2(3, 3)
-texture = ExtResource("12_3ytht")
-metadata/_edit_lock_ = true
+[node name="TextureRect3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ya2mj")
 
-[node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-238, -6)
-motion_mirroring = Vector2(3000, 0)
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_bottom = 20
 
-[node name="Ground" type="Sprite2D" parent="ParallaxBackground/Ground"]
-position = Vector2(1504, 254.00002)
-scale = Vector2(3, 3)
-texture = ExtResource("13_afcs2")
-metadata/_edit_lock_ = true
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-238, -6)
-motion_scale = Vector2(0.1, 1)
-motion_mirroring = Vector2(3000, 0)
-script = ExtResource("14_311ke")
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
 
-[node name="Clouds" type="Sprite2D" parent="ParallaxBackground/Clouds"]
-position = Vector2(1504, 251)
-scale = Vector2(3, 3)
-texture = ExtResource("15_etbao")
+[node name="GameLogo" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
 
-[node name="Ocean" type="ParallaxLayer" parent="ParallaxBackground"]
-position = Vector2(-237, -6)
-motion_scale = Vector2(0.5, 1)
-motion_mirroring = Vector2(3000, 0)
+[node name="start_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "START"
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ocean"]
-position = Vector2(1504, 251)
-scale = Vector2(3, 3)
-texture = ExtResource("16_425nr")
-metadata/_edit_lock_ = true
+[node name="credits_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "CREDITS
+"
 
-[node name="NPC" parent="." instance=ExtResource("14_dhd8o")]
-position = Vector2(409, 349)
+[node name="quit_btn" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(5, 5)
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "QUIT
+"
 
-[node name="criança" parent="." instance=ExtResource("14_dhd8o")]
-position = Vector2(862, 347)
-script = ExtResource("17_dhd8o")
+[node name="mochi" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
 
-[node name="guarda" parent="." instance=ExtResource("14_dhd8o")]
-position = Vector2(1959, 345)
-script = ExtResource("18_cs4p6")
+[node name="titlemusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_l0ehb")
+volume_db = -9.541
+autoplay = true
+parameters/looping = true
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(-87, 222.25)
-shape = SubResource("RectangleShape2D_cs4p6")
-
-[node name="HUD" parent="." instance=ExtResource("19_deyi8")]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/start_btn" to="." method="_on_start_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/credits_btn" to="." method="_on_credits_btn_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/quit_btn" to="." method="_on_quit_btn_pressed"]

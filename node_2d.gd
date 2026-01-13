@@ -29,7 +29,9 @@ func _process(delta: float) -> void:
 
 	exposicao = clamp(exposicao, 0, MAX)
 
-	# --- ATUALIZAÇÃO DA HUD ---
+	if exposicao >= MAX:
+		# Substitua o print por isso:d
+		get_tree().change_scene_to_file("res://game_over.tscn")
 	
 	# 1. Tenta encontrar o Player na cena se ainda não encontrou
 	if player_ref == null:
@@ -43,3 +45,26 @@ func _process(delta: float) -> void:
 	# Dano
 	if exposicao >= MAX:
 		print("O Player está queimando!")
+<<<<<<< Updated upstream
+=======
+func _ready() -> void:
+	if music:
+		music.volume_db = -80.0   
+		music.play()            
+		
+		var tween = create_tween()
+		tween.set_ease(Tween.EASE_OUT)
+		tween.set_trans(Tween.TRANS_SINE)
+		tween.tween_property(music, "volume_db", -12.0, 2.0)
+	
+
+
+func _on_area_sombra_body_entered(body: Node2D) -> void:
+	if body.name == "Player" or body.is_in_group("player"):
+		esta_na_sombra = true
+
+
+func _on_area_sombra_body_exited(body: Node2D) -> void:
+	if body.name == "Player" or body.is_in_group("player"):
+		esta_na_sombra = false
+>>>>>>> Stashed changes

@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bls2nwi65cm7k"]
+[gd_scene load_steps=7 format=3 uid="uid://bn85r4dbik8y4"]
 
-[ext_resource type="Script" path="res://titlescreen.gd" id="1_kdubu"]
-[ext_resource type="Texture2D" uid="uid://c5b3bfbb3q34c" path="res://sprites/background/title-background.png" id="2_d21ai"]
-[ext_resource type="Texture2D" uid="uid://bpsxoggcgh1rr" path="res://sprites/background/title-palyer.png" id="3_rj586"]
-[ext_resource type="Texture2D" uid="uid://ds6mi6gvbrh4y" path="res://sprites/background/title-krab.png" id="4_4d7sh"]
-[ext_resource type="Texture2D" uid="uid://cs2fvvg3xkgpx" path="res://sprites/background/title-sun.png" id="5_ir8iy"]
-[ext_resource type="AudioStream" path="res://titlescreen_music.mp3" id="6_hqns4"]
+[ext_resource type="Script" path="res://titlescreen.gd" id="1_28vn7"]
+[ext_resource type="Texture2D" uid="uid://c5b3bfbb3q34c" path="res://sprites/background/title-background.png" id="2_k2vha"]
+[ext_resource type="Texture2D" uid="uid://bpsxoggcgh1rr" path="res://sprites/background/title-palyer.png" id="3_fkf4o"]
+[ext_resource type="Texture2D" uid="uid://ds6mi6gvbrh4y" path="res://sprites/background/title-krab.png" id="4_3u7xm"]
+[ext_resource type="Texture2D" uid="uid://cs2fvvg3xkgpx" path="res://sprites/background/title-sun.png" id="5_woa3c"]
+[ext_resource type="AudioStream" path="res://titlescreen_music.mp3" id="6_dd2jf"]
 
 [node name="titlescreen" type="Control"]
 layout_mode = 3
@@ -14,7 +14,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_kdubu")
+script = ExtResource("1_28vn7")
 
 [node name="bg" type="TextureRect" parent="."]
 layout_mode = 1
@@ -23,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_d21ai")
+texture = ExtResource("2_k2vha")
 expand_mode = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -33,7 +33,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_rj586")
+texture = ExtResource("3_fkf4o")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
 layout_mode = 1
@@ -42,7 +42,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_4d7sh")
+texture = ExtResource("4_3u7xm")
 
 [node name="TextureRect3" type="TextureRect" parent="."]
 layout_mode = 1
@@ -51,7 +51,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_ir8iy")
+texture = ExtResource("5_woa3c")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -99,7 +99,7 @@ text = "QUIT
 layout_mode = 2
 
 [node name="titlemusic" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_hqns4")
+stream = ExtResource("6_dd2jf")
 volume_db = -9.541
 autoplay = true
 parameters/looping = true
