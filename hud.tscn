@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=3 uid="uid://ddgwhod2rm1oc"]
+
+[ext_resource type="Script" uid="uid://gtwub76pvbqp" path="res://uihud.gd" id="1_8sq4i"]
+[ext_resource type="Texture2D" uid="uid://dekavi6rykef4" path="res://hud0.png" id="2_640wx"]
+[ext_resource type="Texture2D" uid="uid://bb0lhnv027nhi" path="res://hud1.png" id="3_a2258"]
+[ext_resource type="Texture2D" uid="uid://di8faqka8l0pr" path="res://hud-itens.png" id="4_640wx"]
+[ext_resource type="Texture2D" uid="uid://crj7u30lguqhe" path="res://item0.png" id="5_g10ll"]
+[ext_resource type="Texture2D" uid="uid://y60ijnlj6ish" path="res://sprites/toy.png" id="6_gpiub"]
+[ext_resource type="Texture2D" uid="uid://b11a8s3x7xt2a" path="res://item2.png" id="7_amv7k"]
+[ext_resource type="Texture2D" uid="uid://cfkjbgi3n2af0" path="res://item3.png" id="8_1fv7p"]
+[ext_resource type="Texture2D" uid="uid://0qlen77io6c1" path="res://item4.png" id="9_4u2vk"]
+
+[sub_resource type="Gradient" id="Gradient_g10ll"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.19411765, 0.5352941, 1)
+colors = PackedColorArray(0.34201884, 0.54208505, 1, 1, 0.76706654, 0.8263979, 0, 1, 0.88431424, 3.200695e-06, 1.1551381e-06, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_8sq4i")
+gradiente_cor = SubResource("Gradient_g10ll")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = 15.0
+offset_top = 7.0
+offset_right = 283.6667
+offset_bottom = 72.0
+nine_patch_stretch = true
+texture_under = ExtResource("2_640wx")
+texture_progress = ExtResource("3_a2258")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -220.0
+offset_top = -98.0
+offset_right = -122.0
+offset_bottom = -76.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(4, 4)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("4_640wx")
+
+[node name="IconeEstilingue" type="TextureRect" parent="HBoxContainer/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 3.410472
+offset_top = 2.9232664
+offset_right = 19.410473
+offset_bottom = 18.923267
+texture = ExtResource("5_g10ll")
+
+[node name="IconeBoneco" type="TextureRect" parent="HBoxContainer/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 24.5
+offset_top = 4.500002
+offset_right = 35.5
+offset_bottom = 16.500002
+texture = ExtResource("6_gpiub")
+
+[node name="IconeSal" type="TextureRect" parent="HBoxContainer/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 40.999996
+offset_top = 3.0000017
+offset_right = 56.999996
+offset_bottom = 19.000002
+texture = ExtResource("7_amv7k")
+
+[node name="IconeCoco" type="TextureRect" parent="HBoxContainer/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 59.5
+offset_top = 1.75
+offset_right = 75.5
+offset_bottom = 17.75
+texture = ExtResource("8_1fv7p")
+
+[node name="iconeapito" type="TextureRect" parent="HBoxContainer/TextureRect"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 79.0
+offset_top = 3.2500038
+offset_right = 95.0
+offset_bottom = 19.250004
+texture = ExtResource("9_4u2vk")

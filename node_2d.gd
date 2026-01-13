@@ -4,20 +4,24 @@ var exposicao := 0.0
 var esta_na_sombra := false
 
 const MAX := 100.0
-const TAXA_SOL := 10.0
+const TAXA_SOL := 5.0
 const TAXA_SOMBRA := 10.0
 
+@onready var hud = $HUD 
+
+# Variável para guardar a referência do Player
+var player_ref = null 
+
 func _on_sombra_body_entered(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "Player" or body.is_in_group("player"):
 		esta_na_sombra = true
-		print("Entrou na sombra")
 
 func _on_sombra_body_exited(body: Node2D) -> void:
-	if body.name == "Player":
+	if body.name == "Player" or body.is_in_group("player"):
 		esta_na_sombra = false
-		print("Saiu da sombra")
 		
 func _process(delta: float) -> void:
+	# Lógica do Sol
 	if esta_na_sombra:
 		exposicao -= TAXA_SOMBRA * delta
 	else:
@@ -25,4 +29,17 @@ func _process(delta: float) -> void:
 
 	exposicao = clamp(exposicao, 0, MAX)
 
-	$UI/Label.text = str(int(exposicao)) + "%"
+	# --- ATUALIZAÇÃO DA HUD ---
+	
+	# 1. Tenta encontrar o Player na cena se ainda não encontrou
+	if player_ref == null:
+		# Busca o primeiro nó que esteja no grupo "player"
+		player_ref = get_tree().get_first_node_in_group("player")
+	
+	# 2. Se achou o Player e a HUD existe, atualiza tudo
+	if player_ref and hud:
+		hud.atualizar_hud(player_ref, exposicao, MAX)
+		
+	# Dano
+	if exposicao >= MAX:
+		print("O Player está queimando!")

@@ -3,6 +3,7 @@ extends Node2D
 @onready var balloon = $DialogueBalloon
 @onready var label = $DialogueBalloon/DialogueLabel
 @onready var collision = $CollisionShape2D
+@onready var anim = $AnimatedSprite2D # <<< ADICIONADO
 
 @export var vendedor_path: NodePath
 @export var move_distance := 32
@@ -47,10 +48,28 @@ func _ready():
 	add_child(timer)
 
 	balloon.visible = false
+	_play_idle() # <<< começa parado
 
 func _exit_tree():
 	exiting = true
 	vendedor = null
+
+# ======================
+# ANIMAÇÃO
+# ======================
+
+func _play_idle():
+	if anim and anim.animation != "idle":
+		anim.play("idle")
+
+func _play_walk(direction: Vector2):
+	if anim:
+		# vira o sprite
+		if direction.x != 0:
+			anim.flip_h = direction.x < 0
+
+		if anim.animation != "walk":
+			anim.play("walk")
 
 # ======================
 # DIALOGUE
@@ -108,7 +127,6 @@ func _end():
 	balloon.visible = false
 	dialogue_index = 0
 
-	# inicia distração se possível
 	if _can_distract():
 		_start_distraction()
 
@@ -149,14 +167,26 @@ func _start_distraction():
 	await _move_to(original_position)
 	busy = false
 
+# ======================
+# MOVIMENTO + ANIMAÇÃO
+# ======================
+
 func _move_to(target: Vector2) -> void:
 	while (
 		not exiting
 		and is_inside_tree()
 		and global_position.distance_to(target) > 2
 	):
+		var direction = (target - global_position).normalized()
+
+		_play_walk(direction)
+
 		global_position = global_position.move_toward(
 			target,
 			move_speed * get_process_delta_time()
 		)
+
 		await get_tree().process_frame
+
+	# chegou no destino
+	_play_idle()

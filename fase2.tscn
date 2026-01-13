@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://p0b8000xr3qr"]
+[gd_scene load_steps=36 format=3 uid="uid://p0b8000xr3qr"]
 
 [ext_resource type="Script" uid="uid://seqd0cgc51r3" path="res://node_2d.gd" id="1_cs4p6"]
 [ext_resource type="Script" uid="uid://bkyayx2pfoyq8" path="res://player.gd" id="2_deyi8"]
@@ -18,6 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cw5jfm8yd11tx" path="res://sprites/background/ocean.png" id="16_425nr"]
 [ext_resource type="Script" uid="uid://dj87etqxf5n21" path="res://criança.gd" id="17_dhd8o"]
 [ext_resource type="Script" uid="uid://ckwjr1rvqayqk" path="res://guarda.gd" id="18_cs4p6"]
+[ext_resource type="PackedScene" uid="uid://ddgwhod2rm1oc" path="res://hud.tscn" id="19_deyi8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(5993, 50.25)
@@ -275,3 +276,5 @@ script = ExtResource("18_cs4p6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-87, 222.25)
 shape = SubResource("RectangleShape2D_cs4p6")
+
+[node name="HUD" parent="." instance=ExtResource("19_deyi8")]
