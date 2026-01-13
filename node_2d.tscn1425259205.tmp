@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://bls2nwi65cm7k"]
+[gd_scene load_steps=84 format=3 uid="uid://bls2nwi65cm7k"]
 
 [ext_resource type="Script" uid="uid://seqd0cgc51r3" path="res://node_2d.gd" id="1_d21ai"]
 [ext_resource type="Script" uid="uid://bkyayx2pfoyq8" path="res://player.gd" id="2_epypp"]
@@ -33,7 +33,6 @@
 [ext_resource type="Texture2D" uid="uid://boqgufunm2g76" path="res://sprites/vendedo-triste-sheet.png" id="28_24dk6"]
 [ext_resource type="PackedScene" uid="uid://ddgwhod2rm1oc" path="res://hud.tscn" id="32_mryly"]
 [ext_resource type="Script" uid="uid://drovp3m4uc4x1" path="res://flag2.gd" id="33_kq1c5"]
-[ext_resource type="AudioStream" uid="uid://cbpad6atl0bra" path="res://thema.mp3" id="34_ornx7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(5994, 50.25)
@@ -592,16 +591,9 @@ frame_progress = 0.1225585
 [node name="HUD" parent="." instance=ExtResource("32_mryly")]
 
 [node name="Flag" parent="." instance=ExtResource("14_rjqkl")]
-position = Vector2(2026, 337)
+position = Vector2(211, 339)
 scale = Vector2(3, 3)
 script = ExtResource("33_kq1c5")
-next_scene_path = "res://credits.tscn"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("34_ornx7")
-volume_db = -19.083
-autoplay = true
-parameters/looping = true
 
 [connection signal="body_entered" from="Guada-Sol/sombra" to="." method="_on_sombra_body_entered"]
 [connection signal="body_exited" from="Guada-Sol/sombra" to="." method="_on_sombra_body_exited"]

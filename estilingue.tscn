@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2unx0wed55ny"]
+
+[ext_resource type="Script" uid="uid://0av7vo5wnrh8" path="res://estilingue.gd" id="1_1r6n5"]
+
+[node name="estilingue" type="Node2D"]
+script = ExtResource("1_1r6n5")

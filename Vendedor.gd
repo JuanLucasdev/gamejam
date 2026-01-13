@@ -3,6 +3,8 @@ extends Node2D
 @onready var balloon = $DialogueBalloon
 @onready var label = $DialogueBalloon/DialogueLabel
 @onready var collision = $CollisionShape2D
+@export var text_speed := 0.02
+@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 
 @export var leave_distance := 64
 @export var leave_speed := 80.0
@@ -39,6 +41,8 @@ func _ready():
 	add_child(timer)
 
 	balloon.visible = false
+	if anim:
+		anim.play("idle")
 
 func start_dialogue_with_player(player):
 	player_ref = player
@@ -87,6 +91,9 @@ func _break_isopor():
 	is_broken = true
 	estoque = 0
 	player_ref.has_salt = false
+	
+	if anim:
+		anim.play("surprised")
 
 	balloon.visible = true
 	label.text = "Ei!! O que você fez?!"
@@ -100,6 +107,14 @@ func _leave_scene():
 		return
 
 	leaving = true
+	
+	if anim:
+		#anim.play("run") 
+		# Vira o sprite dependendo da direção que ele vai fugir
+		if leave_distance < 0:
+			anim.flip_h = true 
+		else:
+			anim.flip_h = false
 
 	if collision:
 		collision.disabled = true

@@ -39,6 +39,8 @@ func _ready():
 
 func start_dialogue_with_player(player):
 	player_ref = player
+	if player_ref.has_doll:   
+		boneco_entregue = true
 	start_dialogue()
 
 func start_dialogue():
@@ -80,8 +82,14 @@ func _end():
 	balloon.visible = false
 	dialogue_index = 0
 	
+
 	if boneco_entregue and not reward_given and player_ref:
+		
 		player_ref.has_salt = true
+		print("Player recebeu o Sal!")
+		
+		player_ref.has_doll = false 
+		
 		reward_given = true
 
 func force_close_dialogue():

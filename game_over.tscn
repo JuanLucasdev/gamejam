@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://bn85r4dbik8y4"]
+
+[ext_resource type="Script" uid="uid://buscwo6vvakyv" path="res://game_over.gd" id="1_y26ei"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y26ei"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_y26ei")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_y26ei")
+text = "GAME OVER"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]

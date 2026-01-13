@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://p0b8000xr3qr"]
+[gd_scene load_steps=38 format=3 uid="uid://p0b8000xr3qr"]
 
 [ext_resource type="Script" uid="uid://seqd0cgc51r3" path="res://node_2d.gd" id="1_cs4p6"]
 [ext_resource type="Script" uid="uid://bkyayx2pfoyq8" path="res://player.gd" id="2_deyi8"]
@@ -18,6 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://cw5jfm8yd11tx" path="res://sprites/background/ocean.png" id="16_425nr"]
 [ext_resource type="Script" uid="uid://dj87etqxf5n21" path="res://criança.gd" id="17_dhd8o"]
 [ext_resource type="Script" uid="uid://ckwjr1rvqayqk" path="res://guarda.gd" id="18_cs4p6"]
+[ext_resource type="PackedScene" uid="uid://ddgwhod2rm1oc" path="res://hud.tscn" id="19_deyi8"]
+[ext_resource type="PackedScene" uid="uid://hbo621tcsrn2" path="res://flag.tscn" id="20_stiwd"]
+[ext_resource type="AudioStream" uid="uid://cbpad6atl0bra" path="res://thema.mp3" id="21_7mgcf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
 size = Vector2(5993, 50.25)
@@ -259,9 +262,6 @@ scale = Vector2(3, 3)
 texture = ExtResource("16_425nr")
 metadata/_edit_lock_ = true
 
-[node name="NPC" parent="." instance=ExtResource("14_dhd8o")]
-position = Vector2(409, 349)
-
 [node name="criança" parent="." instance=ExtResource("14_dhd8o")]
 position = Vector2(862, 347)
 script = ExtResource("17_dhd8o")
@@ -275,3 +275,14 @@ script = ExtResource("18_cs4p6")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(-87, 222.25)
 shape = SubResource("RectangleShape2D_cs4p6")
+
+[node name="HUD" parent="." instance=ExtResource("19_deyi8")]
+
+[node name="Flag" parent="." instance=ExtResource("20_stiwd")]
+position = Vector2(2169, 339)
+scale = Vector2(3, 3)
+
+[node name="thema" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("21_7mgcf")
+autoplay = true
+parameters/looping = true

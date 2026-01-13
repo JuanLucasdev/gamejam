@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var next_scene_path: String = "res://node_2d.tscn"
+@export var next_scene_path: String = "res://credits.tscn"
 
 func _ready() -> void:
 

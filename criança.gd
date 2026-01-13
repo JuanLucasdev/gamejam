@@ -43,7 +43,7 @@ func _ready():
 	
 	balloon.visible = false
 
-# 🔥 Só a criança tem isso
+
 func start_dialogue_with_player(player: Node):
 	player_ref = player
 	start_dialogue()
