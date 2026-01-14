@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://p0b8000xr3qr"]
+[gd_scene load_steps=54 format=3 uid="uid://p0b8000xr3qr"]
 
 [ext_resource type="Script" uid="uid://seqd0cgc51r3" path="res://node_2d.gd" id="1_cs4p6"]
 [ext_resource type="Script" uid="uid://bkyayx2pfoyq8" path="res://player.gd" id="2_deyi8"]
@@ -10,16 +10,19 @@
 [ext_resource type="Texture2D" uid="uid://dw30yf87403qc" path="res://sprites/coqueiro.png" id="9_xl81o"]
 [ext_resource type="Script" uid="uid://ckfvdgthk6jw1" path="res://coqueiro.gd" id="10_0vmlj"]
 [ext_resource type="PackedScene" uid="uid://3iurscmlogv2" path="res://coco.tscn" id="11_2by0r"]
+[ext_resource type="Texture2D" uid="uid://dbiyoeci5pe3" path="res://sprites/ground.png" id="12_2u4g3"]
 [ext_resource type="Texture2D" uid="uid://dtsc5kut5oy5t" path="res://sprites/background/sky.png" id="12_3ytht"]
-[ext_resource type="Texture2D" uid="uid://c67jw71xxow5c" path="res://sprites/background/ground.png" id="13_afcs2"]
 [ext_resource type="Script" uid="uid://byvx82ebla6ok" path="res://clouds.gd" id="14_311ke"]
 [ext_resource type="PackedScene" uid="uid://b3r5r0co4fumi" path="res://npc.tscn" id="14_dhd8o"]
 [ext_resource type="Texture2D" uid="uid://byqltwcihpbf7" path="res://sprites/background/clouds.png" id="15_etbao"]
 [ext_resource type="Texture2D" uid="uid://cw5jfm8yd11tx" path="res://sprites/background/ocean.png" id="16_425nr"]
 [ext_resource type="Script" uid="uid://dj87etqxf5n21" path="res://criança.gd" id="17_dhd8o"]
 [ext_resource type="Script" uid="uid://ckwjr1rvqayqk" path="res://guarda.gd" id="18_cs4p6"]
+[ext_resource type="Texture2D" uid="uid://dgeh6b04bsag2" path="res://sprites/criança-idle.png" id="18_von6l"]
 [ext_resource type="PackedScene" uid="uid://ddgwhod2rm1oc" path="res://hud.tscn" id="19_deyi8"]
+[ext_resource type="Texture2D" uid="uid://2p12siya2w37" path="res://key.png" id="19_xl81o"]
 [ext_resource type="PackedScene" uid="uid://hbo621tcsrn2" path="res://flag.tscn" id="20_stiwd"]
+[ext_resource type="Texture2D" uid="uid://ya6cardyp4qo" path="res://sprites/salva-vidas-idlet.png" id="21_0vmlj"]
 [ext_resource type="AudioStream" uid="uid://cbpad6atl0bra" path="res://thema.mp3" id="21_7mgcf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0hol4"]
@@ -123,6 +126,100 @@ height = 75.125
 [sub_resource type="CircleShape2D" id="CircleShape2D_k73cj"]
 radius = 7.3399687
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2by0r"]
+atlas = ExtResource("18_von6l")
+region = Rect2(0, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ytht"]
+atlas = ExtResource("18_von6l")
+region = Rect2(23, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afcs2"]
+atlas = ExtResource("18_von6l")
+region = Rect2(46, 0, 23, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_311ke"]
+atlas = ExtResource("18_von6l")
+region = Rect2(69, 0, 23, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_etbao"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2by0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ytht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_afcs2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_311ke")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_425nr"]
+atlas = ExtResource("19_xl81o")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_skgoe"]
+atlas = ExtResource("19_xl81o")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cj4vn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_425nr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_skgoe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oe7nf"]
+atlas = ExtResource("21_0vmlj")
+region = Rect2(0, 0, 20, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i00at"]
+atlas = ExtResource("21_0vmlj")
+region = Rect2(21, 0, 20, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_volva"]
+atlas = ExtResource("21_0vmlj")
+region = Rect2(42, 0, 20, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dee20"]
+atlas = ExtResource("21_0vmlj")
+region = Rect2(63, 0, 20, 36)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iky78"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oe7nf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i00at")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_volva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dee20")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cs4p6"]
 size = Vector2(90, 378.5)
 
@@ -138,7 +235,7 @@ metadata/_edit_lock_ = true
 
 [node name="Player" type="CharacterBody2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(257, 163)
+position = Vector2(253, 253)
 script = ExtResource("2_deyi8")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="Player"]
@@ -225,20 +322,18 @@ position = Vector2(-238, -6)
 motion_mirroring = Vector2(3000, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
-position = Vector2(1504, 252)
-scale = Vector2(3, 3)
+position = Vector2(1504, 181.5)
+scale = Vector2(3, 4.007143)
 texture = ExtResource("12_3ytht")
-metadata/_edit_lock_ = true
 
 [node name="Ground" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-238, -6)
 motion_mirroring = Vector2(3000, 0)
 
 [node name="Ground" type="Sprite2D" parent="ParallaxBackground/Ground"]
-position = Vector2(1504, 254.00002)
+position = Vector2(1504, 482)
 scale = Vector2(3, 3)
-texture = ExtResource("13_afcs2")
-metadata/_edit_lock_ = true
+texture = ExtResource("12_2u4g3")
 
 [node name="Clouds" type="ParallaxLayer" parent="ParallaxBackground"]
 position = Vector2(-238, -6)
@@ -257,18 +352,41 @@ motion_scale = Vector2(0.5, 1)
 motion_mirroring = Vector2(3000, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Ocean"]
-position = Vector2(1504, 251)
+position = Vector2(1503, 251.00002)
 scale = Vector2(3, 3)
 texture = ExtResource("16_425nr")
-metadata/_edit_lock_ = true
 
 [node name="criança" parent="." instance=ExtResource("14_dhd8o")]
 position = Vector2(862, 347)
 script = ExtResource("17_dhd8o")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="criança"]
+position = Vector2(1, 35)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_etbao")
+autoplay = "default"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="criança/AnimatedSprite2D"]
+position = Vector2(0.5, -33)
+sprite_frames = SubResource("SpriteFrames_cj4vn")
+autoplay = "default"
+frame_progress = 0.22877213
+
 [node name="guarda" parent="." instance=ExtResource("14_dhd8o")]
 position = Vector2(1959, 345)
 script = ExtResource("18_cs4p6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="guarda"]
+position = Vector2(1, 31)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_iky78")
+flip_h = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="guarda/AnimatedSprite2D"]
+position = Vector2(0.5, -33)
+sprite_frames = SubResource("SpriteFrames_cj4vn")
+autoplay = "default"
+frame_progress = 0.73150367
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 
@@ -286,3 +404,6 @@ scale = Vector2(3, 3)
 stream = ExtResource("21_7mgcf")
 autoplay = true
 parameters/looping = true
+
+[connection signal="body_entered" from="Guada-Sol/Coqueiro/sombra" to="." method="_on_sombra_body_entered"]
+[connection signal="body_exited" from="Guada-Sol/Coqueiro/sombra" to="." method="_on_sombra_body_exited"]

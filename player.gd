@@ -26,6 +26,8 @@ func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("left", "right")
 	
+	
+	
 	if Input.is_action_pressed("right"):
 		velocity.x += movimento
 	if Input.is_action_pressed("left"):

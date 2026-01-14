@@ -29,6 +29,9 @@ func _process(delta: float) -> void:
 		exposicao += TAXA_SOL * delta
 
 	exposicao = clamp(exposicao, 0, MAX)
+	
+	if exposicao >= MAX:
+		get_tree().change_scene_to_file("res://game_over.tscn")
 
 	# --- ATUALIZAÇÃO DA HUD ---
 	

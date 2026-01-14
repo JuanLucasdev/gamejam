@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=3 uid="uid://bls2nwi65cm7k"]
+[gd_scene load_steps=92 format=3 uid="uid://bls2nwi65cm7k"]
 
 [ext_resource type="Script" uid="uid://seqd0cgc51r3" path="res://node_2d.gd" id="1_d21ai"]
 [ext_resource type="Script" uid="uid://bkyayx2pfoyq8" path="res://player.gd" id="2_epypp"]
@@ -12,11 +12,10 @@
 [ext_resource type="Texture2D" uid="uid://bs5ephyps8mcl" path="res://sprites/guardasol.png" id="7_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://dw30yf87403qc" path="res://sprites/coqueiro.png" id="8_nr8wp"]
 [ext_resource type="Texture2D" uid="uid://dtsc5kut5oy5t" path="res://sprites/background/sky.png" id="9_hqns4"]
-[ext_resource type="Script" uid="uid://ckfvdgthk6jw1" path="res://coqueiro.gd" id="10_flf07"]
 [ext_resource type="Texture2D" uid="uid://byqltwcihpbf7" path="res://sprites/background/clouds.png" id="10_x0ka3"]
 [ext_resource type="Texture2D" uid="uid://cw5jfm8yd11tx" path="res://sprites/background/ocean.png" id="11_0h7mo"]
-[ext_resource type="PackedScene" uid="uid://3iurscmlogv2" path="res://coco.tscn" id="11_k73cj"]
 [ext_resource type="Script" uid="uid://byvx82ebla6ok" path="res://clouds.gd" id="11_nr8wp"]
+[ext_resource type="Script" uid="uid://whj8m5lm55ny" path="res://coqueiro-sem-drop.gd" id="12_ornx7"]
 [ext_resource type="Texture2D" uid="uid://bkhq8nyuq7ev7" path="res://ground.png" id="13_1fr6y"]
 [ext_resource type="PackedScene" uid="uid://hbo621tcsrn2" path="res://flag.tscn" id="14_rjqkl"]
 [ext_resource type="Texture2D" uid="uid://b8mt0smxuve37" path="res://sprites/carangueijo.png" id="15_d2bti"]
@@ -25,9 +24,11 @@
 [ext_resource type="PackedScene" uid="uid://b3r5r0co4fumi" path="res://npc.tscn" id="20_7vxoj"]
 [ext_resource type="Script" uid="uid://btkev5l2qv5jk" path="res://criança2.gd" id="21_ei405"]
 [ext_resource type="Texture2D" uid="uid://dgeh6b04bsag2" path="res://sprites/criança-idle.png" id="22_2nhjh"]
+[ext_resource type="Texture2D" uid="uid://5abhwh3g2348" path="res://click.png" id="22_cnnru"]
 [ext_resource type="Script" uid="uid://u4d256mp1vlg" path="res://Vendedor.gd" id="22_ei405"]
 [ext_resource type="Script" uid="uid://bdhk1sx33qn0r" path="res://Praieiro.gd" id="23_e8dv2"]
 [ext_resource type="Texture2D" uid="uid://11r3anb821pq" path="res://sprites/praieiro-idle-sheet.png" id="25_bjha6"]
+[ext_resource type="Texture2D" uid="uid://2p12siya2w37" path="res://key.png" id="25_cnnru"]
 [ext_resource type="Texture2D" uid="uid://btvvkuyia0ys3" path="res://sprites/pessoa-walk-export.png" id="26_gt76g"]
 [ext_resource type="Texture2D" uid="uid://bmq3uvk7qlhm5" path="res://sprites/vendedor.png" id="27_2u7jv"]
 [ext_resource type="Texture2D" uid="uid://boqgufunm2g76" path="res://sprites/vendedo-triste-sheet.png" id="28_24dk6"]
@@ -203,6 +204,28 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qosj"]
+atlas = ExtResource("22_cnnru")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjlbh"]
+atlas = ExtResource("22_cnnru")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ytlpd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qosj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjlbh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fr6y"]
 size = Vector2(94, 48)
 
@@ -243,6 +266,28 @@ animations = [{
 "loop": true,
 "name": &"idle",
 "speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2v765"]
+atlas = ExtResource("25_cnnru")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8fb0"]
+atlas = ExtResource("25_cnnru")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kfelt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2v765")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8fb0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c4wnb"]
@@ -408,7 +453,8 @@ shape = SubResource("RectangleShape2D_0hol4")
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["Player"]]
 unique_name_in_owner = true
-position = Vector2(70, 373)
+z_index = 1
+position = Vector2(828, 374)
 slide_on_ceiling = false
 script = ExtResource("2_epypp")
 
@@ -431,6 +477,7 @@ zoom = Vector2(1.91, 1.91)
 position = Vector2(2, -2)
 
 [node name="Sun" type="CharacterBody2D" parent="."]
+position = Vector2(754, 28)
 script = ExtResource("3_epypp")
 
 [node name="Sprite2D" type="Sprite2D" parent="Sun"]
@@ -444,7 +491,7 @@ scale = Vector2(0.43, 0.43)
 shape = SubResource("CircleShape2D_0hol4")
 
 [node name="Guada-Sol" type="Node2D" parent="."]
-position = Vector2(1004, 186)
+position = Vector2(1520, 181)
 
 [node name="Sprite2D" type="Sprite2D" parent="Guada-Sol"]
 position = Vector2(-185.99998, 149)
@@ -462,8 +509,7 @@ shape = SubResource("CapsuleShape2D_d21ai")
 position = Vector2(457, 103)
 scale = Vector2(3, 3.1999998)
 texture = ExtResource("8_nr8wp")
-script = ExtResource("10_flf07")
-cena_coco = ExtResource("11_k73cj")
+script = ExtResource("12_ornx7")
 
 [node name="sombra" type="Area2D" parent="Guada-Sol/Coqueiro"]
 
@@ -476,6 +522,47 @@ position = Vector2(-2.3333335, -22.1875)
 script = SubResource("GDScript_ta5nu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Guada-Sol/Coqueiro/area do coco"]
+shape = SubResource("CircleShape2D_k73cj")
+script = SubResource("GDScript_ta5nu")
+
+[node name="Coqueiro2" type="Sprite2D" parent="Guada-Sol"]
+position = Vector2(-1334, 105)
+scale = Vector2(3, 3.1999998)
+texture = ExtResource("8_nr8wp")
+script = ExtResource("12_ornx7")
+
+[node name="sombra" type="Area2D" parent="Guada-Sol/Coqueiro2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guada-Sol/Coqueiro2/sombra"]
+position = Vector2(2.6666665, 9.000001)
+shape = SubResource("CapsuleShape2D_ta5nu")
+
+[node name="area do coco" type="Area2D" parent="Guada-Sol/Coqueiro2"]
+position = Vector2(-2.3333335, -22.1875)
+script = SubResource("GDScript_ta5nu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guada-Sol/Coqueiro2/area do coco"]
+shape = SubResource("CircleShape2D_k73cj")
+script = SubResource("GDScript_ta5nu")
+
+[node name="Coqueiro3" type="Sprite2D" parent="Guada-Sol"]
+position = Vector2(-1235, 105)
+scale = Vector2(3, 3.1999998)
+texture = ExtResource("8_nr8wp")
+flip_h = true
+script = ExtResource("12_ornx7")
+
+[node name="sombra" type="Area2D" parent="Guada-Sol/Coqueiro3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guada-Sol/Coqueiro3/sombra"]
+position = Vector2(2.6666665, 9.000001)
+shape = SubResource("CapsuleShape2D_ta5nu")
+
+[node name="area do coco" type="Area2D" parent="Guada-Sol/Coqueiro3"]
+position = Vector2(-2.3333335, -22.1875)
+script = SubResource("GDScript_ta5nu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Guada-Sol/Coqueiro3/area do coco"]
 shape = SubResource("CircleShape2D_k73cj")
 script = SubResource("GDScript_ta5nu")
 
@@ -524,7 +611,7 @@ scale = Vector2(3, 3)
 texture = ExtResource("11_0h7mo")
 
 [node name="Carangueijo" type="CharacterBody2D" parent="."]
-position = Vector2(415, 392)
+position = Vector2(67, 392)
 script = ExtResource("15_ta5nu")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Carangueijo"]
@@ -534,19 +621,24 @@ sprite_frames = SubResource("SpriteFrames_2nhjh")
 animation = &"idle"
 autoplay = "idle"
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Carangueijo/AnimatedSprite2D"]
+position = Vector2(0.33333334, -27.333334)
+sprite_frames = SubResource("SpriteFrames_ytlpd")
+autoplay = "default"
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Carangueijo"]
-visible = false
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_1fr6y")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(516, -5)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(-87, 222.25)
+position = Vector2(-706, 226)
 shape = SubResource("RectangleShape2D_rjqkl")
 
 [node name="Criança" parent="." instance=ExtResource("20_7vxoj")]
-position = Vector2(977, 347)
+position = Vector2(1493, 342)
 script = ExtResource("21_ei405")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Criança"]
@@ -558,8 +650,13 @@ autoplay = "idle"
 frame_progress = 0.1927211
 flip_h = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Criança/AnimatedSprite2D"]
+position = Vector2(0.5, -33)
+sprite_frames = SubResource("SpriteFrames_kfelt")
+autoplay = "default"
+
 [node name="Vendedor" parent="." instance=ExtResource("20_7vxoj")]
-position = Vector2(1810, 349)
+position = Vector2(2326, 344)
 script = ExtResource("22_ei405")
 text_speed = 0.02
 leave_distance = 64
@@ -573,8 +670,13 @@ animation = &"surprised"
 autoplay = "idle"
 flip_h = true
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Vendedor/AnimatedSprite2D"]
+position = Vector2(0.5, -33)
+sprite_frames = SubResource("SpriteFrames_kfelt")
+autoplay = "default"
+
 [node name="Praieiro" parent="." instance=ExtResource("20_7vxoj")]
-position = Vector2(1314, 347)
+position = Vector2(1830, 342)
 script = ExtResource("23_e8dv2")
 vendedor_path = NodePath("../Vendedor")
 move_distance = 32
@@ -589,10 +691,15 @@ animation = &"walk"
 autoplay = "idle"
 frame_progress = 0.1225585
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Praieiro/AnimatedSprite2D"]
+position = Vector2(0.5, -33)
+sprite_frames = SubResource("SpriteFrames_kfelt")
+autoplay = "default"
+
 [node name="HUD" parent="." instance=ExtResource("32_mryly")]
 
 [node name="Flag" parent="." instance=ExtResource("14_rjqkl")]
-position = Vector2(2026, 337)
+position = Vector2(2596, 335)
 scale = Vector2(3, 3)
 script = ExtResource("33_kq1c5")
 next_scene_path = "res://credits.tscn"
@@ -605,3 +712,9 @@ parameters/looping = true
 
 [connection signal="body_entered" from="Guada-Sol/sombra" to="." method="_on_sombra_body_entered"]
 [connection signal="body_exited" from="Guada-Sol/sombra" to="." method="_on_sombra_body_exited"]
+[connection signal="body_entered" from="Guada-Sol/Coqueiro/sombra" to="." method="_on_sombra_body_entered"]
+[connection signal="body_exited" from="Guada-Sol/Coqueiro/sombra" to="." method="_on_sombra_body_exited"]
+[connection signal="body_entered" from="Guada-Sol/Coqueiro2/sombra" to="." method="_on_sombra_body_entered"]
+[connection signal="body_exited" from="Guada-Sol/Coqueiro2/sombra" to="." method="_on_sombra_body_exited"]
+[connection signal="body_entered" from="Guada-Sol/Coqueiro3/sombra" to="." method="_on_sombra_body_entered"]
+[connection signal="body_exited" from="Guada-Sol/Coqueiro3/sombra" to="." method="_on_sombra_body_exited"]
